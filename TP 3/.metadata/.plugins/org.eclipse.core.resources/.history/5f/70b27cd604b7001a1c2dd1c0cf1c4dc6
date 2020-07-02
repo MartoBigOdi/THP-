@@ -1,0 +1,77 @@
+package ejercicio_TP4;
+import java.util.ArrayList;
+
+public class Edificio {
+
+	private String direccion;
+	private int cantidadDeptos;
+	private ArrayList<Departamento> listaDeptos;
+	private ArrayList<Departamento> listaDeptosMorosos;
+	
+	//Getter y Setters
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public int getCantidadDeptos() {
+		return cantidadDeptos;
+	}
+
+	private void setDireccion(String direccion) {
+		if(!direccion.equals("")) {
+		this.direccion = direccion;
+		}
+	}
+
+	private void setCantidadDeptos(int cantidadDeptos) {
+		if(cantidadDeptos > 0) {
+		this.cantidadDeptos = cantidadDeptos;
+		}
+	}
+
+	//Constructor
+	public Edificio(String direccion, int cantidadDeptos) {
+		this.setDireccion(direccion);
+		this.setCantidadDeptos(cantidadDeptos);
+	}
+
+	//Agregamos el Depto al Edificio
+	public boolean agregarUnidad(String numeroUnidad, String dniPropietario, String nombrePropietario) {
+		 boolean sePudo = false;
+		 Departamento departamento = buscarDepto(numeroUnidad);
+			if(departamento == null) {
+				departamento = new Departamento(numeroUnidad, dniPropietario, nombrePropietario);
+				if (listaDeptos.size() < this.cantidadDeptos) {
+					listaDeptos.add(departamento);
+					sePudo = true;
+					System.out.println(departamento);
+					System.out.println("Se agrego Unidad");
+				} else {
+					System.out.println("No se agrego Unidad");
+				}
+			} else {
+				System.out.println("Ya existe la unidad.");
+
+			}
+			return sePudo;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Edificio [Direccion = " + direccion + ", Cantidad de Deptos = " + cantidadDeptos +"\n"+"ListaDeptos = "
+				+ listaDeptos +"\n"+"ListaDeptosMorosos = " + listaDeptosMorosos + "]";
+	}
+
+	public static void main(String[] args) {
+		
+	}
+
+}

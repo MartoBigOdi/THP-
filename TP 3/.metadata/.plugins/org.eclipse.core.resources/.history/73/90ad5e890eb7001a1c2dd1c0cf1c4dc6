@@ -1,0 +1,23 @@
+package ejercicio_TP4;
+
+public class Test_edificio {
+
+	public static void main(String[] args) {
+		
+		Edificio edificio = new Edificio("Cucha Cucha 958", 10);
+		
+		//Agreagmos departamentos
+		edificio.agregarUnidad("3", "33408629", "Martin Vasconcelo");
+		edificio.agregarUnidad("1", "33456689", "Matias Lopez");
+		
+		//Departamentos repetidos, devuelve mensaje.
+		edificio.agregarUnidad("3", "33408629", "Martin Vasconcelo");
+		edificio.agregarUnidad("3", "33408629", "Martin Vasconcelo");
+	
+		//
+		
+		
+		System.out.println(edificio); 
+	}
+
+}

@@ -1,0 +1,67 @@
+package ejercicio_TP4;
+
+public class Test_equipos {
+	
+	
+	public static void jugar(Equipo equipo, Equipo equipo2) {
+		if(equipo.golesTotales() == equipo2.golesTotales()) {
+			System.out.println("Empataron, partido aburrido");
+		} if(equipo.golesTotales() > equipo2.golesTotales()) {
+			System.out.println("Ganó el equipo " + equipo.getNombre());
+		} else {
+			System.out.println("Ganó el equipo " + equipo.getNombre());
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		//Equipo2
+		Equipo equipo2 = new Equipo("Club la birra social", 4);
+		
+		equipo2.darDeAlta("10", "Facu Granadel", 8);
+		equipo2.darDeAlta("9", "Hernandez Hernan", 65);
+		equipo2.darDeAlta("7", "Matias Gonzales", 12);
+		equipo2.darDeAlta("5", "Lazaro Fernandez", 30);
+		
+		//Equipo 1
+		Equipo equipo1 = new Equipo("Club Atlético Marto", 4);
+		//Equipo equipo2 = new Equipo("Club la birra social", 4);
+	
+		//Damos de alta jugadores
+		equipo1.darDeAlta("10", "Vasco", 8);
+		equipo1.darDeAlta("9", "Hernandez", 65);
+		equipo1.darDeAlta("7", "Matias Lopez", 12);
+		equipo1.darDeAlta("5", "Lazaro Hernandez", 27);
+		
+		//Nos avisa que pasamos el Límite
+		equipo1.darDeAlta("1", "Rene iguita", 6);
+		equipo1.darDeAlta("8", "Pipi Romagnoli", 54);
+		
+		
+		//repetido tiene que mostrar mensaje.
+		equipo1.darDeAlta("10", "Vasco", 8);
+		
+		
+		System.out.println(equipo1);
+		
+		System.out.println(equipo2);
+		
+		
+		//Mostrando goles por Equipo.
+		System.out.println("Goles del equipo 1 " + equipo1.golesTotales());
+		
+		System.out.println("Goles del Equipo 2 " + equipo2.golesTotales());
+		
+		//Mostrando Goles de un Jugador
+		equipo2.mostrarGoles("7");
+		
+		
+		//Mostramos el Método Jugar
+		jugar(equipo1, equipo2);
+		
+		
+		
+	}
+
+}

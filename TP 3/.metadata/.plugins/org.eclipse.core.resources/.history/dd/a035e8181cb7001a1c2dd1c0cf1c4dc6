@@ -1,0 +1,43 @@
+package ejercicio_TP4;
+
+import java.util.ArrayList;
+
+public class Equipo {
+
+	private String nombre;
+	private int cantidadJugadores;
+	private ArrayList<Jugador> listaJugadores;
+	
+	//Getters y Setters
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getCantidadJugadores() {
+		return cantidadJugadores;
+	}
+
+	private void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	private void setCantidadJugadores(int cantidadJugadores) {
+		if(cantidadJugadores <= 14) {
+		this.cantidadJugadores = cantidadJugadores;
+		}
+	}
+	
+	//Constructor
+	public Equipo(String nombre, int cantidadJugadores) {
+		super();
+		this.setNombre(nombre);
+		this.setCantidadJugadores(cantidadJugadores);
+		listaJugadores = new ArrayList<>();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

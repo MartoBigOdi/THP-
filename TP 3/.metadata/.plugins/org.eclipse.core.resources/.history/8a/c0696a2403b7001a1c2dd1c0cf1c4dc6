@@ -1,0 +1,70 @@
+package ejercicio_TP4;
+
+public class Departamento {
+
+	private String numeroUnidad;
+	private String dniPropietario;
+	private String nombrePropietario;
+	private int saldoDepto;
+	
+	
+	public Departamento(String numeroUnidad, String dniPropietario, String nombrePropietario) {
+		this.setNumeroUnidad(numeroUnidad);
+		this.setDniPropietario(dniPropietario);
+		this.setNombrePropietario(nombrePropietario);
+		this.setSaldoDepto(0);
+	}
+
+	
+	//Setters y Getters
+	public String getNumeroUnidad() {
+		return numeroUnidad;
+	}
+
+	public String getDniPropietario() {
+		return dniPropietario;
+	}
+
+	public String getNombrePropietario() {
+		return nombrePropietario;
+	}
+
+	public int getSaldoDepto() {
+		return saldoDepto;
+	}
+
+	public void setNumeroUnidad(String numeroUnidad) {
+		if(!numeroUnidad.equals("")){
+			this.numeroUnidad = numeroUnidad;
+		}
+	}
+
+	public void setDniPropietario(String dniPropietario) {
+		if(!dniPropietario.equals("")) {
+		this.dniPropietario = dniPropietario;
+		}
+	}
+
+	public void setNombrePropietario(String nombrePropietario) {
+		if(!nombrePropietario.equals(""))
+		this.nombrePropietario = nombrePropietario;
+	}
+
+	public void setSaldoDepto(int saldoDepto) {
+		if(saldoDepto > 0) {
+		this.saldoDepto = saldoDepto;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Departamento [numeroUnidad = " + numeroUnidad +"\n"+ "DNI Propietario = " + dniPropietario
+				+"\n"+ "Nombre Propietario = " + nombrePropietario +"\n"+ "Saldo Depto = " + saldoDepto + "]";
+	}
+
+
+	public static void main(String[] args) {
+		
+	}
+
+}

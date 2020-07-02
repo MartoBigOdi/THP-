@@ -1,0 +1,41 @@
+package ejercicio_TP4;
+
+public class Test_concurso {
+
+	public static void main(String[] args) {
+
+		Concurso concurso = new Concurso();
+		
+		//Agregamos Participante
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		concurso.agregarParticipante("33548729", "Lucas", "Hernandez", 0);
+		
+		//Repetimos participante
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		
+		//Corroboramos los participantes
+		System.out.println(concurso);
+		
+		//Eliminamos Participante
+		concurso.eliminarParticipante("33548729");
+		
+		//Corroboramos el Eliminar Participante
+		concurso.eliminarParticipante("33548729");
+		
+		//Probando sumar voto NO existe
+		concurso.votarParticipante("33548729");
+		
+		//probando sumar voto SI existe
+		concurso.votarParticipante("33408629");
+		
+		
+		//Cantidad de Participantes
+		System.out.println( "\n" + concurso.cantidadParticipantes());
+		
+		System.out.println(concurso);
+		
+		
+	}
+
+}

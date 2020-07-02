@@ -1,0 +1,117 @@
+package ejercicio_TP4;
+import java.util.ArrayList;
+
+
+public class Concurso {
+	
+	private String nombre;
+	private ArrayList<Participante> listaParticipantes;
+	
+	
+	//Setter y Getter
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	//Constructor
+	public Concurso() {
+		this.setNombre("Quarantine Bakers");
+		listaParticipantes = new ArrayList<>();
+	}
+	
+	
+	//Agregar un Participante
+	public boolean agregarParticipante(String dni, String nombre, String apellido, int puntaje) {
+		boolean sePudo = false;
+		Participante participante = buscarParticipante(dni);
+		if(participante == null) {
+			participante = new Participante(dni, nombre, apellido, 0);
+				listaParticipantes.add(participante);
+				sePudo = true;
+				System.out.println("Se agregó al Participante");
+		} else {
+			System.out.println("Ya se agregó antes");
+		}
+		return sePudo;
+	}
+	
+	
+	//Buscamos el Participante
+		private Participante buscarParticipante(String dni) {
+			Participante participante = null;
+			int i = 0;
+			while(i < listaParticipantes.size() && participante == null) {
+				if(listaParticipantes.get(i).getDni() == dni) {
+					participante = listaParticipantes.get(i);
+				} else {
+					i++;
+				}
+			}
+			return participante;  
+		}
+	
+		
+	//Eliminamos al Participante
+		public boolean eliminarParticipante(String dni) {
+			boolean sePudo = false;
+			Participante participante = buscarParticipante(dni);
+			if(participante != null) {
+					listaParticipantes.remove(participante);
+					sePudo = true;
+					System.out.println("Se borró al Participante");
+			} else {
+				System.out.println("Ya se había borrado antes");
+			}
+			return sePudo;
+		}
+		
+		
+	//Votamos por un participante
+	public void votarParticipante(String dni) {
+		Participante participante = buscarParticipante(dni);
+		if(participante != null) {
+			participante.sumarVoto();
+			System.out.println("voto par el participante " + participante.getNombre() + " " +participante.getApellido());
+		}else {
+			System.out.println("Voto invalido participante inexistente");
+		}
+	}
+	
+	//Obtener la cantidad de participantes
+	public int cantidadParticipantes() {
+		return listaParticipantes.size();
+	}
+		
+	//Mostrar mayor pubtaje ocn nombre completo	
+	public void mostrarMayorPuntaje() {
+		int mayorPuntaje = -1;
+		Participante participanteMasVotos;
+		for (Participante participante : listaParticipantes) {
+			if(participante.getPuntaje() > mayorPuntaje) {
+				mayorPuntaje = participante.getPuntaje();
+				participanteMasVotos = participante;
+				System.out.println("\n" + "EL mayor puntaje es de " + participanteMasVotos.getNombre() + " " + participanteMasVotos.getApellido()); 
+			} if (listaParticipantes.size() == 0) {
+				System.out.println("\n" + "No hay participnates");
+			}
+		}
+	}
+	
+	//Buscar Partipante por Puntaje
+	
+	
+	@Override
+	public String toString() {
+		return "\n" + "El Concurso " +"\n" + "[El concurso " + nombre + "\n"+ "ListaParticipantes = " + listaParticipantes + "]";
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

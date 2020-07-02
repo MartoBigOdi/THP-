@@ -1,0 +1,23 @@
+package ejercicio_TP4;
+
+public class Test_concurso {
+
+	public static void main(String[] args) {
+
+		Concurso concurso = new Concurso();
+		
+		//Agregamos Participante
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		concurso.agregarParticipante("33548729", "Lucas", "Hernandez", 0);
+		
+		//Repetimos participante
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		concurso.agregarParticipante("33408629", "Martin", "Vasconcelo", 0);
+		
+		
+		System.out.println(concurso);
+		
+		
+	}
+
+}
